@@ -2,9 +2,9 @@
     
 }
 .icon, .text {
-    vertical-align: middle;
+    vertical-align: bottom;
     display: inline-block;
 }
 .nav-link {
-    padding-top: 13px;
+    padding-top: 14px;
 }
