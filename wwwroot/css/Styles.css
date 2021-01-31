@@ -1,0 +1,10 @@
+﻿body {
+    
+}
+.icon, .text {
+    vertical-align: middle;
+    display: inline-block;
+}
+.nav-link {
+    padding-top: 13px;
+}
