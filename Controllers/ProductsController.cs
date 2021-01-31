@@ -11,7 +11,7 @@ namespace PRODUCTOS_COTEMAR.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class ProductsController : ControllerBase
+    public class ProductsController : Controller
     {
         GetProducts getProd;
 
@@ -25,9 +25,10 @@ namespace PRODUCTOS_COTEMAR.Controllers
 
         // GET: api/<ProuductsController>
         [HttpGet]
-        public IEnumerable<string> Get()
+        public async Task<ActionResult> Index()
         {
-            return new string[] { "value1", "value2" };
+            var lstProduct = await getProd.GetAllProducts();
+            return View(lstProduct);
         }
 
         // GET api/<ProuductsController>/5
