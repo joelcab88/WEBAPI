@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using PRODUCTOS_COTEMAR.Models.Methods;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -10,8 +11,18 @@ namespace PRODUCTOS_COTEMAR.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class ProuductsController : ControllerBase
+    public class ProductsController : ControllerBase
     {
+        GetProducts getProd;
+
+        /// <summary>
+        /// Constructor que inicializa clase de métodos.
+        /// </summary>
+        public ProductsController()
+        {
+            this.getProd = new GetProducts();
+        }
+
         // GET: api/<ProuductsController>
         [HttpGet]
         public IEnumerable<string> Get()
