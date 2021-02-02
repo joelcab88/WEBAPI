@@ -8,3 +8,23 @@
 .nav-link {
     padding-top: 14px;
 }
+button,
+svg, .add {
+    display: inline-block;
+    vertical-align: middle;
+}
+#Navbarid {
+    background-color: #142f5c !important;
+}
+#buttonadd {
+    text-align: right;
+    padding-bottom: 11px;
+}
+
+#texto2 {
+    padding-top: 15px;
+}
+#divcontainertable {
+    padding-bottom: 40px;
+}
+
