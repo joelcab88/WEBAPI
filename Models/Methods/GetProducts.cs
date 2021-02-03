@@ -47,5 +47,32 @@ namespace PRODUCTOS_COTEMAR.Models.Methods
                 else { return null; }
             }
         }
+
+        /// <summary>
+        /// Obtiene un solo producto por ID
+        /// </summary>
+        /// <param name="id">Id del producto</param>
+        /// <returns>Información del producto.</returns>
+        public async Task<ProductViewModel> GetProductById(int id)
+        {
+            using (HttpClient client = new HttpClient())
+            {
+                String petition = "products?id=" + id;
+                client.BaseAddress = new Uri(this.UriApi);
+                client.DefaultRequestHeaders.Accept.Clear();
+                client.DefaultRequestHeaders.Accept.Add(mediaHeader);
+                HttpResponseMessage respuesta = await client.GetAsync(petition);
+                if (respuesta.IsSuccessStatusCode)
+                {
+                    var jsonResult = await respuesta.Content.ReadAsStringAsync();
+                    var product = JsonConvert.DeserializeObject<Product>(jsonResult).data;
+                    return product;
+                }
+                else 
+                { 
+                    return null; 
+                }
+            }
+        }
     }
 }

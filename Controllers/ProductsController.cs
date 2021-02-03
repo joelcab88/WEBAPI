@@ -31,11 +31,12 @@ namespace PRODUCTOS_COTEMAR.Controllers
             return View(lstProduct);
         }
 
-        // GET api/<ProuductsController>/5
+        // GET api/<ProuductsController>/Details/5
         [HttpGet("{id}")]
-        public string Get(int id)
+        public async Task<ActionResult> Details(int id)
         {
-            return "value";
+            var _product = await getProd.GetProductById(id);
+            return View(_product);
         }
 
         // POST api/<ProuductsController>
